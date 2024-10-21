@@ -108,3 +108,32 @@ class DPR:
           else:
             print("Input error; m should be either o or 1; m=0 indicating longitudinal mode,m=1 indicating flexural mode; ")
         return np.array(root_all) 
+    
+
+
+def PDiff(signal1: np.ndarray, signal2: np.ndarray) -> np.ndarray:
+    """
+    Phase difference
+    """
+
+    # Input
+    if not isinstance(signal1, np.ndarray):
+        raise TypeError("signal1 必须是一个 NumPy 数组。")
+    if not isinstance(signal2, np.ndarray):
+        raise TypeError("signal2 必须是一个 NumPy 数组。")
+    if signal1.shape != signal2.shape:
+        raise ValueError("signal1 和 signal2 必须具有相同的形状。")
+    if signal1.ndim != 1:
+        raise ValueError("signal1 和 signal2 必须是一维数组。")
+
+    # FT
+    f1 = np.fft.fft(signal1)
+    f2 = np.fft.fft(signal2)
+
+    # PD
+    p = np.imag(np.log(f2) - np.log(f1))
+
+    # Normal [-π, π]
+    p = (p + np.pi) % (2 * np.pi) - np.pi
+
+    return p
