@@ -3,6 +3,19 @@ This module is used to perform dispersion analysis for a cylindrical pile.
 developed by Shihao Cui, Polytechnique Montreal.
 Github link: https://github.com/ShihaoCui/Blog_of_Pile.github.io
 """
+from dataclasses import dataclass    
+from math import erfc  
+from joblib import Parallel, delayed  
+import json  
+import numpy as np 
+from scipy.special import jv,jn_zeros
+from scipy import special,optimize 
+import scipy.special as sp
+import matplotlib.pyplot as plt
+from numpy.linalg import inv
+
+import scipy.io as scio
+
 
 class DPR:
     ''' 
