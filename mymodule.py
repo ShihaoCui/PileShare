@@ -66,8 +66,8 @@ class DPR:
             cp = cb*np.sqrt((1-vv)/((1+vv)*(1-2*vv))) # longtudinal wave speed
         #     print(str(cs)+str("      ")+str(cp))
 
-            ks = np.sqrt(np.complex(-k**2+(w**2)/(cs**2))) # the wavenumebr of the shear waves
-            kp = np.sqrt(np.complex(-k**2+(w**2)/(cp**2))) # the wavenumber of the longitudinal waves
+            ks = np.sqrt(np.complex128(-k**2+(w**2)/(cs**2))) # the wavenumebr of the shear waves
+            kp = np.sqrt(np.complex128(-k**2+(w**2)/(cp**2))) # the wavenumber of the longitudinal waves
 
             M = np.zeros([2,2],dtype = complex)# the matrix of the disperison relation, |M|=0 is the spectrum relation
             M[0,0] = -(lbd*k**2+lbd*kp**2+2*nu*kp**2)*J0(kp*r)+2*nu*kp*J1(kp*r)/r
