@@ -4,7 +4,6 @@ developed by Shihao Cui, Polytechnique Montreal.
 Github link: https://github.com/ShihaoCui/Blog_of_Pile.github.io
 """
 
-@dataclass
 class DPR:
     ''' 
     Object for the dispersion analysis of a cylindrical pile with a finite length L an a finite radius r
