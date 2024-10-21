@@ -100,7 +100,7 @@ class DPR:
         ''' Define function to be used for the Parallel computing'''
         omega = np.array(self.fn) # fn is the given input frequency (Hz) vector
         root_all = [] # the result of the phase velocity by the theoretical model corresponding to the give frequency vector (fn)
-        for i in range(len(fn)):
+        for i in range(len(self.fn)):
           if self.m ==0:
             root_all.append(self.model_L(omega[i]))
           elif self.m == 1:
