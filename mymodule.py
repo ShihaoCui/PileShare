@@ -118,13 +118,13 @@ def PDiff(signal1: np.ndarray, signal2: np.ndarray) -> np.ndarray:
 
     # Input
     if not isinstance(signal1, np.ndarray):
-        raise TypeError("signal1 必须是一个 NumPy 数组。")
+        raise TypeError("signal1 must be NumPy Array")
     if not isinstance(signal2, np.ndarray):
-        raise TypeError("signal2 必须是一个 NumPy 数组。")
+        raise TypeError("signal2 must be NumPy Array")
     if signal1.shape != signal2.shape:
-        raise ValueError("signal1 和 signal2 必须具有相同的形状。")
+        raise ValueError("signal1 nd signal2 must be same shape")
     if signal1.ndim != 1:
-        raise ValueError("signal1 和 signal2 必须是一维数组。")
+        raise ValueError("signal1 and signal2 must be 1-d ")
 
     # FT
     f1 = np.fft.fft(signal1)
